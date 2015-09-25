@@ -11,6 +11,7 @@ var Post        = require('./models/post.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+app.use(express.static(__dirname)); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -124,7 +125,11 @@ router.route('/blog/:post_id')
             }
         });
     });
-
+    
+//Loads Index when request comes in at localhost:8080
+    // app.get('*', function(req, res) {
+    //     res.sendfile('index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    // });
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
