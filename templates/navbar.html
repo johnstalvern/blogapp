@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cree</a>
+    </div>
+
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li ng-class="{ active:isSelected('blog') }">
+          <a href ng-click="selectTab('blog')">Blog</a>
+        </li>
+        <li ng-class="{ active:isSelected('about') }">
+          <a href ng-click="selectTab('about')">About</a>
+        </li>
+        <li ng-class="{ active:isSelected('contact') }">
+          <a href ng-click="selectTab('contact')">Contact</a>
+        </li>
+
+
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+
+
+          <ul class="dropdown-menu">
+            <li ng-class="{ active:isSelected('about') }">
+              <a href ng-click="selectTab('createPost')">Create Post</a>
+            </li>
+            <li><a href>Edit Posts</a></li>
+            <li><a href>Delete Posts</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href>Sign In</a></li>
+            <li><a href>Log Out</a></li>
+          </ul>
+
+
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

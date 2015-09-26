@@ -1,0 +1,12 @@
+<div ng-controller="PostController" class="panel panel-default">
+    <div class="panel-heading">
+    	<h3 class="panel-title">
+    		<strong>
+    			<a href ng-click="selectTab('viewPost')">{{postById.title}}</a>
+    		</strong> created on {{postById.time | date: 'MM/dd/yy @ h:mma'}}
+    	</h3>
+    </div>
+    <div class="panel-body">
+        {{postById.body}} 
+    </div>
+</div>
