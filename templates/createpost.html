@@ -1,12 +1,14 @@
-<b>{{formData.title}}</b>
-<p>{{formData.body}}</a>
+<div ng-controller="PostController">
+	<b>{{formData.title}}</b>
+	<p>{{formData.body}}</a>
 
 
-<form ng-controller="PostController" name="postForm" ng-submit="postForm.$valid && createPost()" novalidate>
+	<form name="postForm" ng-submit="postForm.$valid && createPost()" novalidate>
 
-    <input class="form-control" type="text" ng-model="formData.title" name="title" placeholder="Title" required>
-    <br>
-  <textarea class="form-control" ng-model="formData.body" name="body" placeholder="Body" required></textarea>
-  <br>
-  <input class="btn-success form-control" type="submit" value="Submit">
-</form> 
+	    <input class="form-control" type="text" ng-model="formData.title" name="title" placeholder="Title" required>
+	    <br>
+	  <textarea class="form-control" ng-model="formData.body" name="body" placeholder="Body" required></textarea>
+	  <br>
+	  <input class="btn-success form-control" type="submit" value="Submit">
+	</form> 
+</div>

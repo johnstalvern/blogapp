@@ -2,11 +2,12 @@
     <div class="panel-heading">
     	<h3 class="panel-title">
     		<strong>
-    			<a href ng-click="selectTab('viewPost'); getPost('post._id')">{{post.title}}</a>
+    			<a href="/" ng-click="selectTab('viewPost')">{{post.title}}</a>
     		</strong> created on {{post.time | date: 'MM/dd/yy @ h:mma'}}
     	</h3>
     </div>
     <div class="panel-body">
-        {{post.body}} 
+        {{post.body}} <br>
+        {{post._id}}
     </div>
 </div>

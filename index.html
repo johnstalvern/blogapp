@@ -25,6 +25,9 @@
             <div class="inner">
               <nav-bar></nav-bar>
           </div>
+
+          <a ng-click="getPost(56073748c3cd79f806000001)"><p>Click here{{postById}}</p></a>
+
           <div ng-controller="PostController">
             <div ng-show="isSelected('blog')">
               <div ng-repeat="post in posts | orderBy: 'time':true">

@@ -2,7 +2,7 @@
 
 var app = angular.module('blogApp',[]);
 
-app.controller('PostController', function($scope,$http){
+app.controller('PostController', function($scope,$http,$window){
     	$scope.formData = {
     		
     		title: '',
@@ -15,10 +15,9 @@ app.controller('PostController', function($scope,$http){
         $scope.posts = {};
 
 
-
         ($scope.getAllPosts = function(){
 
-                        $http.get('/api/blog')
+                $http.get('/api/blog')
                 .success(function(data){
 
                     $scope.posts = data;
@@ -42,6 +41,9 @@ app.controller('PostController', function($scope,$http){
             $http({method: 'POST', url:'/api/blog', data: $scope.formData})
 			.then(function(response){
 			     //your code in case the post succeeds
+                 $scope.formData = {};
+                 $window.location.reload();
+
 			    console.log(response);
 			    })
 			.catch(function(err){
@@ -51,9 +53,9 @@ app.controller('PostController', function($scope,$http){
 
             }
 
-        $scope.getPost = function () {
+        $scope.getPost = function (id) {
 
-            $http({method: 'GET', url: '/api/blog/:post_id', data: $scope.postById})
+            $http({method: 'GET', url: '/api/blog/' + id, data: $scope.postById})
             .then(function(response){
                  //your code in case the post succeeds
                 console.log(response);
@@ -91,6 +93,8 @@ app.controller('PanelController', function($scope) {
         };
 
     });
+
+
 
 app.directive('blogPost', function(){
 
@@ -152,7 +156,7 @@ app.directive('viewPost', function(){
     return {
 
         restrict: 'E',
-        templateUrl: 'templates/postid.html'
+        templateUrl: 'templates/postbyid.html'
 
     };
 
