@@ -25,32 +25,9 @@
             <div class="inner">
               <nav-bar></nav-bar>
           </div>
-
-          <a ng-click="getPost(56073748c3cd79f806000001)"><p>Click here{{postById}}</p></a>
-
-          <div ng-controller="PostController">
-            <div ng-show="isSelected('blog')">
-              <div ng-repeat="post in posts | orderBy: 'time':true">
-                <blog-post></blog-post>
-              </div>
-            </div>
-
-            <div ng-show="isSelected('about')">
-              <about-page></about-page>
-            </div>
-
-            <div ng-show="isSelected('contact')">
-              <contact></contact>
-            </div>
-
-            <div ng-show="isSelected('createPost')">
-              <create-post></create-post>
-            </div>
-
-            <div ng-show="isSelected('viewPost')">
-              <view-post></view-post>
-            </div>
-
+            
+              <ng-view></ng-view>
+            
           </div>
         </div>
 

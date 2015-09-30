@@ -1,0 +1,15 @@
+<div ng-repeat="post in posts | orderBy:'time':true">   
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	<h3 class="panel-title">
+        		<strong>
+        			<a href="/post/{{$index}}">{{post.title}}</a>
+        		</strong> created on {{post.time | date: 'dd/MM/yy @ h:mma'}}
+        	</h3>
+        </div>
+        <div class="panel-body">
+            {{post.body}} <br>
+            {{post._id}}
+        </div>
+    </div>
+</div>
