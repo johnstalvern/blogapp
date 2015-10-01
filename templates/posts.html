@@ -3,7 +3,7 @@
         <div class="panel-heading">
         	<h3 class="panel-title">
         		<strong>
-        			<a href="/post/{{$index}}">{{post.title}}</a>
+        			<a ng-click"getPost('post._id')" href="/post/{{post._id}}">{{post.title}}</a>
         		</strong> created on {{post.time | date: 'dd/MM/yy @ h:mma'}}
         	</h3>
         </div>

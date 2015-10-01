@@ -10,7 +10,8 @@ app.config(function($routeProvider, $locationProvider){
     .when("/", {templateUrl: "templates/posts.html", controller: "PostController"})
 
     .when("/new", {templateUrl: "templates/createpost.html", controller: "PostController"})
-    .when("/post/:id", {templateUrl: "templates/post.html", controller: "PostController"});
+
+    .when("/post/:id", {templateUrl: "../templates/post.html", controller: "EditController"});
 
 });
 
@@ -23,8 +24,6 @@ app.controller('PostController', function($scope,$http,$location,$routeParams){
     	};
 
         $scope.posts = {};
-
-        $scope.post = $scope.posts[$routeParams.id];
 
 
         ($scope.getAllPosts = function(){
@@ -59,17 +58,37 @@ app.controller('PostController', function($scope,$http,$location,$routeParams){
 
             }
 
-        $scope.getPost = function () {
+
+});
+
+app.controller('EditController', function($scope,$http,$location,$routeParams){
+
+    $scope.post = {};
+
+    ($scope.getPost = function(){
+            console.log($routeParams);
+                $http.get('/api/blog/' + $routeParams.id)
+                .success(function(data){
+
+                    $scope.post = data;
+                    
+
+                });
 
 
+        })();
 
-            }
-        
+    $scope.deletePost = function(){
 
-            function editPost(){}
+        $http.delete('/api/blog/' + $routeParams.id)
+            .then(function(response){
+                 //your code in case the post succeeds
+                 $location.path('/');
 
-            function deletePost(){}
+                })
 
+
+    }
 
 
 });

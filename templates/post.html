@@ -2,11 +2,11 @@
     <div class="panel-heading">
     	<h3 class="panel-title">
     		<strong>
-    			<a href>{{post.title}}</a>
-    		</strong> created on {{post.time | date: 'MM/dd/yy @ h:mma'}}
+    			<a>{{post.title}}</a></strong> created on {{post.time | date: 'MM/dd/yy @ h:mma'}}
     	</h3>
     </div>
     <div class="panel-body">
         {{post.body}}
     </div>
+    <button ng-click="deletePost()" type="submit" class="btn btn-danger">Delete</button>
 </div>
