@@ -3,13 +3,13 @@
         <div class="panel-heading">
         	<h3 class="panel-title">
         		<strong>
-        			<a ng-click"getPost('post._id')" href="/post/{{post._id}}">{{post.title}}</a>
-        		</strong> created on {{post.time | date: 'dd/MM/yy @ h:mma'}}
+        			<a style="color:black;" ng-click"getPost('post._id')" href="/post/{{post._id}}">{{post.title}}</a>
+        		</strong>
+                <p class="pull-right">created on {{post.time | date: 'dd/MM/yy @ h:mma'}}</p>
         	</h3>
         </div>
         <div class="panel-body">
-            {{post.body}} <br>
-            {{post._id}}
+            <p class="text-left" style="color:black;">{{post.body}}</p> <br>
         </div>
     </div>
 </div>

@@ -11,7 +11,9 @@ app.config(function($routeProvider, $locationProvider){
 
     .when("/new", {templateUrl: "templates/createpost.html", controller: "PostController"})
 
-    .when("/post/:id", {templateUrl: "../templates/post.html", controller: "EditController"});
+    .when("/post/:id", {templateUrl: "../templates/post.html", controller: "EditController"})
+
+    .when("/edit/:id", {templateUrl: "../templates/editpost.html", controller: "EditController"});
 
 });
 
@@ -87,8 +89,18 @@ app.controller('EditController', function($scope,$http,$location,$routeParams){
 
                 })
 
-
     }
+
+    $scope.editPost = function(){
+
+        $http({method: 'PUT', url: '/api/blog/' + $routeParams.id, data: $scope.post})
+            .then(function(response){
+                 //your code in case the post succeeds
+                 $location.path('/');
+
+                })
+
+        }
 
 
 });

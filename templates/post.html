@@ -2,11 +2,19 @@
     <div class="panel-heading">
     	<h3 class="panel-title">
     		<strong>
-    			<a>{{post.title}}</a></strong> created on {{post.time | date: 'MM/dd/yy @ h:mma'}}
+    			{{post.title}}</strong> created on {{post.time | date: 'dd/MM/yy @ h:mma'}}
     	</h3>
     </div>
     <div class="panel-body">
-        {{post.body}}
+        <p class="text-left" style="color:black;">{{post.body}}</p>
     </div>
-    <button ng-click="deletePost()" type="submit" class="btn btn-danger">Delete</button>
+    <a href="/edit/{{post._id}}">
+        <span style="font-size:1.5em;color:black;padding-right:30px;" class="glyphicon glyphicon glyphicon-edit" aria-hidden="true">
+    </a>
+
+
+    <a href><span style="font-size:1.5em;color:black;padding-left:30px;" class="glyphicon glyphicon-trash" ng-click="deletePost()" aria-hidden="true"></span><a>
+
+
+    <br><br>
 </div>

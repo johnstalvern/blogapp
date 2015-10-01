@@ -1,0 +1,15 @@
+
+	<strong>{{post.title}}</strong>
+	<br><br>
+	<p class="text-left">{{post.body}}</p>
+	<br><br>
+
+	<form name="editForm" ng-submit="editForm.$valid && editPost()" novalidate>
+
+	    <input class="form-control" type="text" ng-model="post.title" name="title" required>
+	    <br>
+	  <textarea class="form-control" ng-model="post.body" name="body" required></textarea>
+	  <br>
+	  <input class="btn-success form-control" type="submit" value="Submit">
+	</form> 
+
